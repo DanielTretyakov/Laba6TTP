@@ -99,7 +99,24 @@ def create_boss():
 
 
 def create_worker():
-    return
+    while True:
+        name = input("Введите имя сотрудника: ")
+        if name.isalpha():
+            break
+        else:
+            print("Ошибка: Имя должно состоять только из букв. Попробуйте снова.")
+
+    surname = input("Введите фамилию сотрудника: ")
+
+    while True:
+        age = input("Введите возраст сотрудника: ")
+        try:
+            age = int(age)
+            break  # Если возраст успешно преобразован в целое число, завершаем цикл
+        except ValueError:
+            print("Ошибка: Возраст должен быть числом. Попробуйте снова.")
+
+    return Worker(name, surname, age)
 
 
 def menu():
@@ -131,7 +148,13 @@ def menu():
                 print("Сначала создайте фирму.")
             input("Нажмите Enter, чтобы продолжить...")
         elif choose == "3":
-            pass
+            if work:
+                worker = create_worker()
+                work.make_worker(worker)
+                print("Сотрудник создан.")
+            else:
+                print("Сначала создайте фирму.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "4":
             pass
         elif choose == "5":
