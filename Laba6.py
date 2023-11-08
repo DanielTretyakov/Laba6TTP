@@ -73,7 +73,8 @@ class Work:
 
 
 def create_work():
-    return
+    name_of_work = input("Введите название фирмы: ")
+    return Work(name_of_work)
 
 
 def create_boss():
@@ -101,7 +102,9 @@ def menu():
         choose = input("Выберите пункт меню: ")
 
         if choose == "1":
-            pass
+            work = create_work()
+            print("Фирма создана.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "2":
             pass
         elif choose == "3":
